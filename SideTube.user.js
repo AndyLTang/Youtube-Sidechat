@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SideTube
 // @namespace    dairful
-// @version      0.0.1
+// @version      0.0.2
 // @description  Reorder content panels and resize panels into a scrollable panel
 // @author       Dairful
 // @include      *://www.youtube.com/*
@@ -13,22 +13,40 @@
 function main(){
     // Check if current page is a video page
     if($("#page").hasClass("watch")){
-      // Reorder content panels
-        $("#watch7-sidebar-contents").before($("#watch-discussion"));
-        $("#watch-discussion").after($("#watch7-sidebar-contents"));
-        $("#watch7-sidebar-contents").after($("#watch-discussion"));
-      // CSS modifications
-        $("#watch-discussion").css({"height":"auto", 
-                                       "max-height":"550px", 
-                                       "overflow":"auto", 
-                                       "overflow-x":"hidden"});
-        $("#action-panel-details").css({"height":"auto", 
-                                           "max-height":"550px", 
-                                           "overflow":"auto"});
-        $("#watch7-sidebar-contents").css({"height":"auto", 
-                                              "min-height":"153px", 
-                                              "max-height":"153px", 
-                                              "overflow":"auto"});
+        var $upnext = $("#watch7-sidebar-contents");
+        var $comments = $("#watch-discussion");
+        var $description = $("#action-panel-details");
+        // Reorder content panels
+        $upnext.before($comments);
+        $comments.after($upnext);
+        $upnext.after($comments);
+        // CSS modifications (could be put in CSS using Stylish instead)
+        $upnext.css({"height":"auto", 
+                     "min-height":"153px", 
+                     "max-height":"153px", 
+                     "overflow":"auto"});
+        $comments.css({"height":"auto", 
+                       "max-height":"550px", 
+                       "overflow":"auto", 
+                       "overflow-x":"hidden"});
+        $description.css({"height":"auto", 
+                          "max-height":"550px", 
+                          "overflow":"auto"});
+        // Prevent page scroll when textbox scrolls to bottom
+        $upnext.bind( 'mousewheel DOMMouseScroll', function ( e ) {
+            var e0 = e.originalEvent,
+                delta = e0.wheelDelta || -e0.detail;
+
+            this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+            e.preventDefault();
+        });
+        $comments.bind( 'mousewheel DOMMouseScroll', function ( e ) {
+            var e0 = e.originalEvent,
+                delta = e0.wheelDelta || -e0.detail;
+
+            this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+            e.preventDefault();
+        });
     }
 }
 
