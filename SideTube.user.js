@@ -1,26 +1,30 @@
 // ==UserScript==
 // @name         SideTube
 // @namespace    dairful
-// @version      0.0.2
+// @version      0.0.3
 // @description  Reorder content panels and resize panels into a scrollable panel
 // @author       Dairful
 // @include      *://www.youtube.com/*
 // @grant        none
 // @require      http://code.jquery.com/jquery-latest.js
 // @downloadURL  https://github.com/Dairful/SideTube/raw/master/SideTube.user.js
+// @noframes
 // ==/UserScript==
 
 function main(){
-    // Check if current page is a video page
+    
+	// Check if current page is a video page
     if($("#page").hasClass("watch")){
         var $upnext = $("#watch7-sidebar-contents");
         var $comments = $("#watch-discussion");
         var $description = $("#action-panel-details");
-        // Reorder content panels
+        
+		// Reorder content panels
         $upnext.before($comments);
         $comments.after($upnext);
         $upnext.after($comments);
-        // CSS modifications (could be put in CSS using Stylish instead)
+        
+		// CSS modifications (could be put in CSS using Stylish instead)
         $upnext.css({"height":"auto", 
                      "min-height":"153px", 
                      "max-height":"153px", 
@@ -32,6 +36,7 @@ function main(){
         $description.css({"height":"auto", 
                           "max-height":"550px", 
                           "overflow":"auto"});
+		
         // Prevent page scroll when textbox scrolls to bottom
         $upnext.bind( 'mousewheel DOMMouseScroll', function ( e ) {
             var e0 = e.originalEvent,
@@ -47,8 +52,11 @@ function main(){
             this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
             e.preventDefault();
         });
-    }
+
+	}
+
 }
 
 main();
 $(document).on("spfdone", main);
+
