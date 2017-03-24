@@ -7,7 +7,7 @@
 // @include      *://www.youtube.com/*
 // @grant        none
 // @require      http://code.jquery.com/jquery-latest.js
-// @downloadURL  https://github.com/AndyLTang/YTSidechat/raw/master/YTSidechat.user.js
+// @downloadURL  https://github.com/AndyLTang/Youtube-Sidechat/raw/master/YTSidechat.user.js
 // @noframes
 // ==/UserScript==
 
