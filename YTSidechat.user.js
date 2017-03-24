@@ -1,13 +1,13 @@
 // ==UserScript==
-// @name         SideTube
-// @namespace    dairful
-// @version      0.0.3
+// @name         YTSidechat
+// @namespace    AT
+// @version      0.0.4
 // @description  Reorder content panels and resize panels into a scrollable panel
-// @author       Dairful
+// @author       Andy T.
 // @include      *://www.youtube.com/*
 // @grant        none
 // @require      http://code.jquery.com/jquery-latest.js
-// @downloadURL  https://github.com/Dairful/SideTube/raw/master/SideTube.user.js
+// @downloadURL  https://github.com/AndyLTang/YTSidechat/raw/master/YTSidechat.user.js
 // @noframes
 // ==/UserScript==
 
