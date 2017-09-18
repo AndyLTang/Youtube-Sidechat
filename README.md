@@ -1,5 +1,5 @@
 # Youtube Sidechat
-A JQuery script to reorganize YouTube's video watching page. 
+A JQuery script that reorganizes YouTube's video viewing page. Moves the comments section to the right side.
 
 ## How to Install
 On Chromium-based browsers:
@@ -10,12 +10,3 @@ On Chromium-based browsers:
 ## Sample screenshots
 
 ![Example 1](Screenshots/example-01.png)
-
-## Patch Notes
-
-#### v0.0.3 
- * Fixed script loading more than once because of iFrames
-#### v0.0.2 
- * Fixed page overscrolling
-#### v0.0.1 
- * Initial Release
