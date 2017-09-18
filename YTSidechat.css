@@ -1,0 +1,14 @@
+#comments {
+    float: right;
+    position: relative;
+    clear: right;
+    max-width: calc(var(--watch-sidebar-width) - 2em);
+    padding-left: 0px;
+    height: 75vh;
+    overflow-y: scroll;
+}
+
+#related {
+    height: 15vh;
+    overflow-y: scroll;
+}
